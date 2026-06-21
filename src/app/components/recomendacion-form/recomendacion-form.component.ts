@@ -9,9 +9,6 @@ import { rangoAnioValidator } from '../../core/validators/custom-validators';
   styleUrls: ['./recomendacion-form.component.css']
 })
 export class RecomendacionFormComponent {
-
-  // @Output + EventEmitter: este componente hijo emite el evento hacia el componente padre
-  // cada vez que se crea una nueva recomendación.
   @Output() recomendacionCreada: EventEmitter<Recomendacion> = new EventEmitter<Recomendacion>();
 
   formGroup: FormGroup;
@@ -20,9 +17,6 @@ export class RecomendacionFormComponent {
   readonly anioMaximo = new Date().getFullYear();
 
   constructor(private formBuilder: FormBuilder) {
-    // Configuración del formGroup a partir del formBuilder, con al menos 2 controles.
-    // El campo "titulo" usa required + minLength.
-    // El campo "anio" usa required + el validador personalizado y parametrizable rangoAnioValidator.
     this.formGroup = this.formBuilder.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
       categoria: ['Anime' as CategoriaRecomendacion, [Validators.required]],
@@ -32,8 +26,6 @@ export class RecomendacionFormComponent {
     });
   }
 
-  // Método auxiliar usado en el HTML junto con *ngIf para mostrar mensajes de error
-  // solo cuando corresponde (control tocado/modificado + con el error indicado).
   hasError(controlName: string, errorName: string): boolean {
     const control = this.formGroup.get(controlName);
     if (!control) {
@@ -60,8 +52,7 @@ export class RecomendacionFormComponent {
       votosPositivos: 0,
       votosNegativos: 0
     };
-
-    // Emitimos el evento con la nueva recomendación hacia el componente padre
+    
     this.recomendacionCreada.emit(nuevaRecomendacion);
 
     this.formGroup.reset({ categoria: 'Anime' });

@@ -2,16 +2,11 @@
   <h1 class="fw-bold display-6">
     <i class="bi bi-broadcast-pin"></i> Foro de Recomendaciones
   </h1>
-  <p class="lead mb-0">Anime y música que vale la pena conocer, votado por la comunidad</p>
+  <p class="lead mb-0">Anime y música de nicho, votado por la comunidad</p>
 </div>
 
 <div class="row">
   <div class="col-lg-5">
-    <!--
-      Componente hijo (recomendacion-form) que contiene su propio formulario.
-      El padre (HomeComponent) "recibe" el evento emitido por el hijo mediante
-      el binding (recomendacionCreada), ejecutando alRecibirRecomendacion($event).
-    -->
     <app-recomendacion-form
       (recomendacionCreada)="alRecibirRecomendacion($event)">
     </app-recomendacion-form>

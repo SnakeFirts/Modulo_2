@@ -27,8 +27,6 @@ import { recomendacionesReducer } from './store/recomendaciones/recomendaciones.
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    // Configuración de NgRx Store: registramos el reducer "recomendaciones"
-    // bajo la clave 'recomendaciones' del AppState.
     StoreModule.forRoot({
       recomendaciones: recomendacionesReducer
     })

@@ -11,7 +11,6 @@ export interface RecomendacionesState {
   items: Recomendacion[];
 }
 
-// Estado inicial con un par de recomendaciones de ejemplo
 export const initialState: RecomendacionesState = {
   items: [
     {
@@ -39,20 +38,16 @@ export const initialState: RecomendacionesState = {
 
 export const recomendacionesReducer = createReducer(
   initialState,
-
-  // Maneja el AGREGADO de un elemento a la colección
   on(addRecomendacion, (state, { recomendacion }) => ({
     ...state,
     items: [...state.items, recomendacion]
   })),
 
-  // Maneja el BORRADO de un elemento de la colección
   on(deleteRecomendacion, (state, { id }) => ({
     ...state,
     items: state.items.filter(item => item.id !== id)
   })),
 
-  // Funcionalidad de voto a favor: incrementa el contador de votosPositivos del item correspondiente
   on(upvoteRecomendacion, (state, { id }) => ({
     ...state,
     items: state.items.map(item =>
@@ -60,7 +55,6 @@ export const recomendacionesReducer = createReducer(
     )
   })),
 
-  // Funcionalidad de voto en contra: incrementa el contador de votosNegativos del item correspondiente
   on(downvoteRecomendacion, (state, { id }) => ({
     ...state,
     items: state.items.map(item =>

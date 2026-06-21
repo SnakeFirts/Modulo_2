@@ -16,16 +16,12 @@ export class PerfilFormComponent {
   guardadoExitoso = false;
 
   constructor(private formBuilder: FormBuilder) {
-    // formGroup configurado desde el constructor a partir de formBuilder,
-    // con al menos 2 controles: nombre y bio.
-    // "nombre" usa required + el validador personalizado y parametrizable nombrePropioValidator.
     this.formGroup = this.formBuilder.group({
       nombre: ['', [Validators.required, nombrePropioValidator(this.longitudMinimaNombre)]],
       bio: ['', [Validators.required, Validators.maxLength(160)]]
     });
   }
-
-  // Usado en el HTML junto con *ngIf para mostrar mensajes de error según corresponda
+  
   hasError(controlName: string, errorName: string): boolean {
     const control = this.formGroup.get(controlName);
     if (!control) {
