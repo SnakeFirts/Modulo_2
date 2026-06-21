@@ -1,0 +1,38 @@
+.form-card {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff 0%, #f5f1ff 100%);
+}
+
+.titulo-degradado {
+  background: linear-gradient(90deg, #7b2ff7, #f72585);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.input-glow {
+  border-radius: 10px;
+  border: 1px solid #e2d9f3;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.input-glow:focus {
+  border-color: #b388ff;
+  box-shadow: 0 0 0 0.2rem rgba(123, 47, 247, 0.2);
+}
+
+.btn-degradado {
+  background: linear-gradient(90deg, #7b2ff7, #f72585);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(123, 47, 247, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-degradado:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(247, 37, 133, 0.4);
+  color: white;
+}

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-degradado shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-white" routerLink="/home">
+      <i class="bi bi-stars"></i> {{ title }}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/home" routerLinkActive="active-link">
+            <i class="bi bi-house-door-fill"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/nosotros" routerLinkActive="active-link">
+            <i class="bi bi-info-circle-fill"></i> Nosotros
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <!-- router-outlet como enrutador raíz de la aplicación -->
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="text-center text-muted py-4 small">
+  Hecho con <i class="bi bi-heart-fill text-danger"></i> en Angular + NgRx + Bootstrap
+</footer>

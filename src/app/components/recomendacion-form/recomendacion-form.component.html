@@ -1,0 +1,99 @@
+<div class="card form-card shadow-lg border-0 mb-4">
+  <div class="card-body p-4">
+    <h4 class="card-title fw-bold mb-3 titulo-degradado">
+      <i class="bi bi-stars"></i> Comparte una recomendación
+    </h4>
+
+    <form [formGroup]="formGroup" (ngSubmit)="enviar()" novalidate>
+
+      <div class="row g-3">
+
+        <!-- Campo: titulo (vinculado al formGroup, input type text) -->
+        <div class="col-md-6">
+          <label for="titulo" class="form-label fw-semibold">Título</label>
+          <input
+            id="titulo"
+            type="text"
+            class="form-control input-glow"
+            placeholder="Ej: Steins;Gate"
+            formControlName="titulo">
+
+          <div class="text-danger small mt-1" *ngIf="hasError('titulo', 'required')">
+            <i class="bi bi-exclamation-circle"></i> El título es obligatorio.
+          </div>
+          <div class="text-danger small mt-1" *ngIf="hasError('titulo', 'minlength')">
+            <i class="bi bi-exclamation-circle"></i> El título debe tener al menos 2 caracteres.
+          </div>
+        </div>
+
+        <!-- Campo: autor (vinculado al formGroup, input type text) -->
+        <div class="col-md-6">
+          <label for="autor" class="form-label fw-semibold">Tu nombre</label>
+          <input
+            id="autor"
+            type="text"
+            class="form-control input-glow"
+            placeholder="Ej: Snake"
+            formControlName="autor">
+
+          <div class="text-danger small mt-1" *ngIf="hasError('autor', 'required')">
+            <i class="bi bi-exclamation-circle"></i> El nombre es obligatorio.
+          </div>
+        </div>
+
+        <!-- Campo: categoria -->
+        <div class="col-md-6">
+          <label for="categoria" class="form-label fw-semibold">Categoría</label>
+          <select id="categoria" class="form-select input-glow" formControlName="categoria">
+            <option value="Anime">Anime</option>
+            <option value="Música">Música</option>
+          </select>
+        </div>
+
+        <!-- Campo: anio (required + validación personalizada parametrizable rangoAnioValidator) -->
+        <div class="col-md-6">
+          <label for="anio" class="form-label fw-semibold">Año</label>
+          <input
+            id="anio"
+            type="text"
+            class="form-control input-glow"
+            placeholder="Ej: 2011"
+            formControlName="anio">
+
+          <div class="text-danger small mt-1" *ngIf="hasError('anio', 'required')">
+            <i class="bi bi-exclamation-circle"></i> El año es obligatorio.
+          </div>
+          <div class="text-danger small mt-1" *ngIf="hasError('anio', 'rangoAnio')">
+            <i class="bi bi-exclamation-circle"></i>
+            El año debe estar entre {{ anioMinimo }} y {{ anioMaximo }}.
+          </div>
+        </div>
+
+        <!-- Campo: comentario -->
+        <div class="col-12">
+          <label for="comentario" class="form-label fw-semibold">¿Por qué lo recomendás?</label>
+          <textarea
+            id="comentario"
+            class="form-control input-glow"
+            rows="2"
+            placeholder="Contanos brevemente por qué vale la pena..."
+            formControlName="comentario"></textarea>
+
+          <div class="text-danger small mt-1" *ngIf="hasError('comentario', 'required')">
+            <i class="bi bi-exclamation-circle"></i> El comentario es obligatorio.
+          </div>
+          <div class="text-danger small mt-1" *ngIf="hasError('comentario', 'minlength')">
+            <i class="bi bi-exclamation-circle"></i> Escribe al menos 10 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn btn-degradado px-4">
+          <i class="bi bi-send-fill"></i> Publicar recomendación
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

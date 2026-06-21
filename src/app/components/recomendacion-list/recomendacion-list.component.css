@@ -1,0 +1,91 @@
+.titulo-degradado {
+  background: linear-gradient(90deg, #7b2ff7, #f72585);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.badge-contador {
+  background: linear-gradient(90deg, #ff9a3c, #f72585);
+  color: white;
+  padding: 0.5em 1em;
+  font-weight: 600;
+}
+
+.reco-card {
+  border-radius: 16px;
+  background: linear-gradient(165deg, #ffffff 0%, #f7f2ff 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reco-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(123, 47, 247, 0.25) !important;
+}
+
+.categoria-badge {
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.badge-anime {
+  background: linear-gradient(90deg, #4361ee, #7209b7);
+  color: white;
+}
+
+.badge-musica {
+  background: linear-gradient(90deg, #2ec4b6, #06aed5);
+  color: white;
+}
+
+.btn-borrar {
+  color: #c9184a;
+  background: rgba(201, 24, 74, 0.08);
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-borrar:hover {
+  background: rgba(201, 24, 74, 0.18);
+  color: #c9184a;
+}
+
+.btn-voto {
+  border-radius: 20px;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-voto-positivo {
+  background: linear-gradient(90deg, #06d6a0, #1b9aaa);
+  color: white;
+}
+
+.btn-voto-positivo:hover {
+  color: white;
+  filter: brightness(1.08);
+}
+
+.btn-voto-negativo {
+  background: linear-gradient(90deg, #ef476f, #ff6b6b);
+  color: white;
+}
+
+.btn-voto-negativo:hover {
+  color: white;
+  filter: brightness(1.08);
+}
+
+.puntaje {
+  font-size: 1.1rem;
+}
+
+.puntaje-positivo {
+  color: #06aed5;
+}
+
+.puntaje-negativo {
+  color: #ef476f;
+}

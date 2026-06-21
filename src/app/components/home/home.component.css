@@ -1,0 +1,5 @@
+.hero-banner {
+  background: linear-gradient(120deg, #4361ee 0%, #7209b7 50%, #f72585 100%);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(114, 9, 183, 0.35);
+}

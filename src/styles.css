@@ -1,0 +1,13 @@
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #f4f1fb 0%, #fdf2f8 100%);
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  color: #2b2540;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,55 @@
+<div class="mb-3 d-flex align-items-center justify-content-between">
+  <h4 class="fw-bold titulo-degradado mb-0">
+    <i class="bi bi-collection-play-fill"></i> Recomendaciones de la comunidad
+  </h4>
+  <span class="badge rounded-pill badge-contador">
+    {{ (recomendaciones$ | async)?.length || 0 }} publicadas
+  </span>
+</div>
+
+<div *ngIf="(recomendaciones$ | async)?.length === 0" class="text-center text-muted py-5">
+  <i class="bi bi-emoji-frown fs-1"></i>
+  <p class="mt-2">Todavía no hay recomendaciones. ¡Sé el primero en publicar una!</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6" *ngFor="let item of recomendaciones$ | async">
+    <div class="card reco-card h-100 shadow border-0">
+      <div class="card-body d-flex flex-column">
+
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <span class="badge categoria-badge"
+                [ngClass]="item.categoria === 'Anime' ? 'badge-anime' : 'badge-musica'">
+            <i class="bi" [ngClass]="item.categoria === 'Anime' ? 'bi-camera-reels-fill' : 'bi-music-note-beamed'"></i>
+            {{ item.categoria }}
+          </span>
+          <button class="btn btn-sm btn-borrar" (click)="eliminar(item.id)" title="Eliminar publicación">
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+        </div>
+
+        <h5 class="card-title fw-bold mb-1">{{ item.titulo }}</h5>
+        <p class="text-muted small mb-2">
+          <i class="bi bi-person-circle"></i> {{ item.autor }} · {{ item.anio }}
+        </p>
+        <p class="card-text flex-grow-1">{{ item.comentario }}</p>
+
+        <div class="d-flex align-items-center justify-content-between mt-3 pt-2 border-top">
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-voto btn-voto-positivo" (click)="votarAFavor(item.id)">
+              <i class="bi bi-hand-thumbs-up-fill"></i> {{ item.votosPositivos }}
+            </button>
+            <button class="btn btn-sm btn-voto btn-voto-negativo" (click)="votarEnContra(item.id)">
+              <i class="bi bi-hand-thumbs-down-fill"></i> {{ item.votosNegativos }}
+            </button>
+          </div>
+
+          <span class="fw-bold puntaje" [ngClass]="puntaje(item) >= 0 ? 'puntaje-positivo' : 'puntaje-negativo'">
+            <i class="bi bi-graph-up-arrow"></i> {{ puntaje(item) }}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
